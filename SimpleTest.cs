@@ -27,5 +27,11 @@ namespace VideoGameDatabaseTest
 
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _client.Dispose();
+        }
     }
 }
