@@ -13,8 +13,8 @@ namespace VideoGameDatabaseTest.Steps
         private RestRequest _request;
         private RestResponse _response;
 
-        [Given("I am creating a GET request for the specified endpoint with IDs of {int}")]
-        public void GivenIAmCreatingAGETRequestForTheSpecifiedEndpointWithIDsOf(int p0)
+        [Given("I am creating a GET request for the specified endpoint with an ID of {int}")]
+        public void GivenIAmCreatingAGETRequestForTheSpecifiedEndpointWithAnIDOf(int p0)
         {
             var options = new RestClientOptions("https://videogamedb.uk");
 

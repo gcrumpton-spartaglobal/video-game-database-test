@@ -112,7 +112,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with IDs of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
  await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");

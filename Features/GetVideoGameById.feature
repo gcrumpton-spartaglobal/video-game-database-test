@@ -5,7 +5,7 @@ and receive a JSON response for the game with that ID.
 
 @happy
 Scenario Outline: Check various valid IDs return their respective games
-	Given I am creating a GET request for the specified endpoint with IDs of <ID>
+	Given I am creating a GET request for the specified endpoint with an ID of <ID>
 	When I send the GET request and receive a response
 	Then I receive a status code of 200 OK
 Examples:
