@@ -33,5 +33,12 @@ namespace VideoGameDatabaseTest.Steps
         {
             Assert.That((int)_response.StatusCode, Is.EqualTo(200));
         }
+
+        [Then("I receive a status code of {int} NotFound")]
+        public void ThenIReceiveAStatusCodeOfNotFound(int p0)
+        {
+            Assert.That((int)_response.StatusCode, Is.EqualTo(404));
+        }
+
     }
 }

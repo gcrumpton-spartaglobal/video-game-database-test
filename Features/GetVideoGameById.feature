@@ -13,3 +13,14 @@ Examples:
 	| 1  |
 	| 2  |
 	| 3  |
+
+@sad
+Scenario Outline: Check various invalid IDs returns a 404 error code
+	Given I am creating a GET request for the specified endpoint with an ID of <ID>
+	When I send the GET request and receive a response
+	Then I receive a status code of 404 NotFound
+Examples:
+	| ID |
+	| -1  |
+	| 11  |
+	| 99  |

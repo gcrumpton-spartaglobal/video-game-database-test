@@ -123,6 +123,47 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check various invalid IDs returns a 404 error code")]
+        [NUnit.Framework.CategoryAttribute("sad")]
+        [NUnit.Framework.TestCaseAttribute("-1", null)]
+        [NUnit.Framework.TestCaseAttribute("11", null)]
+        [NUnit.Framework.TestCaseAttribute("99", null)]
+        public async System.Threading.Tasks.Task CheckVariousInvalidIDsReturnsA404ErrorCode(string iD, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "sad"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("ID", iD);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various invalid IDs returns a 404 error code", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 19
+ await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 20
+ await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 21
+ await testRunner.ThenAsync("I receive a status code of 404 NotFound", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
