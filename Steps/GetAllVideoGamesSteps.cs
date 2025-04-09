@@ -17,8 +17,9 @@ namespace VideoGameDatabaseTest.Steps
         private RestRequest _request;
         private RestResponse _response;
 
-        [Given("I have the endpoint of '/api/v2/videogame'")]
-        public void HasEndpoint()
+
+        [Given("I create a new GET request for the specified endpoint")]
+        public void GivenICreateANewGETRequestForTheSpecifiedEndpoint()
         {
             var options = new RestClientOptions("https://videogamedb.uk");
 

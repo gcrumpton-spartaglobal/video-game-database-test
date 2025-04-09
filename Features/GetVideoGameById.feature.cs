@@ -20,19 +20,19 @@ namespace video_game_database_test.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("GetAllVideoGames")]
+    [NUnit.Framework.DescriptionAttribute("GetVideoGameById")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class GetAllVideoGamesFeature
+    public partial class GetVideoGameByIdFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "GetAllVideoGames", "I want to send a GET request to the \'/api/v2/videogame\' endpoint,\r\nand receive JS" +
-                "ON in the response containing all of the video games in the database.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "GetVideoGameById", "I want to be able to pass an id number in a GET request using the endpoint \'/api/" +
+                "v2/videogame/{id}\',\r\nand receive a JSON response for the game with that ID. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "GetAllVideoGames.feature"
+#line 1 "GetVideoGameById.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -84,12 +84,23 @@ namespace video_game_database_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check get all video games")]
-        public async System.Threading.Tasks.Task CheckGetAllVideoGames()
+        [NUnit.Framework.DescriptionAttribute("Check various valid IDs return their respective games")]
+        [NUnit.Framework.CategoryAttribute("happy")]
+        [NUnit.Framework.TestCaseAttribute("1", null)]
+        [NUnit.Framework.TestCaseAttribute("2", null)]
+        [NUnit.Framework.TestCaseAttribute("3", null)]
+        public async System.Threading.Tasks.Task CheckVariousValidIDsReturnTheirRespectiveGames(string iD, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] @__tags = new string[] {
+                    "happy"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check get all video games", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("ID", iD);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid IDs return their respective games", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,13 +112,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync("I create a new GET request for the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with IDs of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.WhenAsync("I send a GET request to that endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
- await testRunner.ThenAsync("I receive a success code of 200 OK", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("I receive a status code of 200 OK", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
