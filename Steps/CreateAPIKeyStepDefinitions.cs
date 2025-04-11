@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
@@ -12,7 +14,6 @@ namespace VideoGameDatabaseTest.Steps
         private RestRequest _request;
         private RestResponse _response;
 
-        //TODO: Add logic to all step defs
 
         [Given("I create a POST request with a given username and password")]
         public void GivenICreateAPOSTRequestWithAGivenUsernameAndPassword()
@@ -40,6 +41,17 @@ namespace VideoGameDatabaseTest.Steps
         public void ThenIReceiveAResponseWithAOKStatusCode(int p0)
         {
             Assert.That((int)_response.StatusCode, Is.EqualTo(p0));
+        }
+
+        [Then("The response JSON content is formatted correctly")]
+        public void ThenTheResponseJSONContentIsFormattedCorrectly()
+        {
+            var responseContent = JToken.Parse(_response.Content);
+            var jsonSchema = JSchema.Parse(File
+                .ReadAllText($"{Directory.GetCurrentDirectory()}/Resources/Schemas/create_api_key.json"
+                ));
+
+            Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
     }
 }

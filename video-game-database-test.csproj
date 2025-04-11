@@ -32,4 +32,10 @@
     <Folder Include="Features\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\Schemas\create_api_key.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -109,6 +109,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  await testRunner.ThenAsync("I receive a response with a 200 OK status code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
+#line 10
+ await testRunner.AndAsync("The response JSON content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }
