@@ -16,9 +16,7 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a new GET request for the specified endpoint")]
         public void GivenICreateANewGETRequestForTheSpecifiedEndpoint()
         {
-            var options = new RestClientOptions("https://videogamedb.uk");
-
-            Client = new RestClient(options);
+            Client = new RestClient(ClientOptions);
             Request = new RestRequest("/api/v2/videogame");
         }
 

@@ -13,9 +13,7 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a POST request with a given username and password")]
         public void GivenICreateAPOSTRequestWithAGivenUsernameAndPassword()
         {
-            var options = new RestClientOptions("https://videogamedb.uk");
-
-            Client = new RestClient(options);
+            Client = new RestClient(ClientOptions);
 
             string username = "admin";
             string password = "admin";

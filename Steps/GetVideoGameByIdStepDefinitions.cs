@@ -12,9 +12,7 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I am creating a GET request for the specified endpoint with an ID of {int}")]
         public void GivenIAmCreatingAGETRequestForTheSpecifiedEndpointWithAnIDOf(int p0)
         {
-            var options = new RestClientOptions("https://videogamedb.uk");
-
-            Client = new RestClient(options);
+            Client = new RestClient(ClientOptions);
             Request = new RestRequest("/api/v2/videogame/" + p0);
         }
 
