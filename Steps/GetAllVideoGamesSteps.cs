@@ -11,32 +11,27 @@ using TechTalk.SpecFlow;
 namespace VideoGameDatabaseTest.Steps
 {
     [Binding]
-    public class GetAllVideoGamesSteps
+    public class GetAllVideoGamesSteps : BaseStepDefinitions
     {
-        private static IRestClient _client;
-        private RestRequest _request;
-        private RestResponse _response;
-
-
         [Given("I create a new GET request for the specified endpoint")]
         public void GivenICreateANewGETRequestForTheSpecifiedEndpoint()
         {
             var options = new RestClientOptions("https://videogamedb.uk");
 
-            _client = new RestClient(options);
-            _request = new RestRequest("/api/v2/videogame");
+            Client = new RestClient(options);
+            Request = new RestRequest("/api/v2/videogame");
         }
 
         [When("I send a GET request to that endpoint")]
         public void GetEndpoint() 
         {
-            _response = _client.Get(_request);
+            Response = Client.Get(Request);
         }
 
         [Then("I receive a success code of 200 OK")]
         public void Receive200OK() 
         {
-            Assert.That(_response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(Response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }
