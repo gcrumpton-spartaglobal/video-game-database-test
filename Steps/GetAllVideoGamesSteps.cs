@@ -7,12 +7,19 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using VideoGameDatabaseTest.Resources.Config;
 
 namespace VideoGameDatabaseTest.Steps
 {
     [Binding]
     public class GetAllVideoGamesSteps : BaseStepDefinitions
     {
+        [BeforeScenario] 
+        public void BeforeScenario() 
+        {
+            SetupConfig();
+        }
+
         [Given("I create a new GET request for the specified endpoint")]
         public void GivenICreateANewGETRequestForTheSpecifiedEndpoint()
         {

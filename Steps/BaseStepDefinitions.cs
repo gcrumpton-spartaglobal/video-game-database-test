@@ -15,18 +15,27 @@ namespace VideoGameDatabaseTest.Steps
         private RestRequest _request;
         private RestResponse _response;
         private RestClientOptions _clientOptions = new RestClientOptions("https://videogamedb.uk");
-        //private static AppSettings _appSettings;
+        private static AppSettings _myConfig;
 
+        // Stores read-in values from appsettings.config
+        private static string _username;
+        private static string _password;
+        private static string _token;
 
         public static IRestClient Client { get => _client; set => _client = value; }
         public RestRequest Request { get => _request; set => _request = value; }
         public RestResponse Response { get => _response; set => _response = value; }
         public RestClientOptions ClientOptions { get => _clientOptions;}
+        internal static AppSettings MyConfig { get => _myConfig; set => _myConfig = value; }
 
-        public static void setupConfig()
+        // Getters and setters for read-in config values
+        public static string Username { get => _username; set => _username = value; }
+        public static string Password { get => _password; set => _password = value; }
+        public static string Token { get => _token; set => _token = value; }
+
+        public static void SetupConfig()
         {
-            //_appSettings = new AppSettings();
-            string configSettingPath = System.IO.Directory.GetParent(@"../../").FullName
+            string configSettingPath = System.IO.Directory.GetParent(@"../../../").FullName
             + Path.DirectorySeparatorChar + "Resources/Config/appsettings.json";
 
             ConfigurationBuilder builder = new ConfigurationBuilder();
@@ -34,13 +43,17 @@ namespace VideoGameDatabaseTest.Steps
 
             IConfiguration config = builder.Build();
 
-            var username = config.GetSection("username");
-            var password = config.GetSection("password");
+            var section = config.GetSection("UserInfo");
 
             // Bind read-in sections to the variables in AppSettings for ease of use
-            AppSettings myConfig = new AppSettings();
-            username.Bind(myConfig);
-            password.Bind(myConfig);
+            _myConfig = new AppSettings();
+            section.Bind(_myConfig);
+
+            // Set values for use in step definitions
+            Username = MyConfig.Username;
+            Password = MyConfig.Password;
+            Token = MyConfig.Token;
+
         }
     }
 }
