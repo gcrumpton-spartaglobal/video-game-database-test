@@ -16,3 +16,10 @@ Scenario: Creating a video game unsuccessfully (invalid authorisation)
 	And my request content is formatted correctly
 	When I send the request to the specified endpoint
 	Then I receive a 403 Forbidden error code
+
+@sad
+Scenario: Creating a video game unsuccessfully (invalid JSON content)
+	Given I create a POST request with authorisation
+	And my request content is formatted incorrectly
+	When I send the request to the specified endpoint
+	Then I receive a 400 Bad Request error code

@@ -34,6 +34,12 @@ namespace VideoGameDatabaseTest.Steps
             Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
+        [Given("my request content is formatted incorrectly")]
+        public void GivenMyRequestContentIsFormattedIncorrectly()
+        {
+            throw new PendingStepException();
+        }
+
         [Given("I create a POST request with invalid authorisation")]
         public void GivenICreateAPOSTRequestWithInvalidAuthorisation()
         {
@@ -70,6 +76,12 @@ namespace VideoGameDatabaseTest.Steps
         public void ThenIReceiveAForbiddenErrorCode(int p0)
         {
             Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
+        }
+
+        [Then("I receive a {int} Bad Request error code")]
+        public void ThenIReceiveABadRequestErrorCode(int p0)
+        {
+            throw new PendingStepException();
         }
     }
 }
