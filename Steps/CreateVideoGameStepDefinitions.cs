@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
@@ -47,7 +49,12 @@ namespace VideoGameDatabaseTest.Steps
         [Then("the response JSON content is formatted correctly")]
         public void ThenTheResponseJSONContentIsFormattedCorrectly()
         {
-            throw new PendingStepException();
+            var responseContent = JToken.Parse(Response.Content);
+            var jsonSchema = JSchema.Parse(File
+                .ReadAllText($"{Directory.GetCurrentDirectory()}/Resources/Schemas/create_api_key.json"
+                ));
+
+            Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
 
     }

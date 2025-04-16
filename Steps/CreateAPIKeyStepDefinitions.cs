@@ -41,7 +41,7 @@ namespace VideoGameDatabaseTest.Steps
         {
             var responseContent = JToken.Parse(Response.Content);
             var jsonSchema = JSchema.Parse(File
-                .ReadAllText($"{Directory.GetCurrentDirectory()}/Resources/Schemas/create_api_key.json"
+                .ReadAllText($"{Directory.GetCurrentDirectory()}/Resources/Schemas/create_video_game.json"
                 ));
 
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
