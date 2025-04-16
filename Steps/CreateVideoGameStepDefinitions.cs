@@ -34,6 +34,12 @@ namespace VideoGameDatabaseTest.Steps
             Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
+        [Given("I create a POST request with invalid authorisation")]
+        public void GivenICreateAPOSTRequestWithInvalidAuthorisation()
+        {
+            throw new PendingStepException();
+        }
+
         [When("I send the request to the specified endpoint")]
         public void WhenISendTheRequestToTheSpecifiedEndpoint()
         {
@@ -57,5 +63,10 @@ namespace VideoGameDatabaseTest.Steps
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
 
+        [Then("I receive a {int} Unauthorized error code")]
+        public void ThenIReceiveAUnauthorizedErrorCode(int p0)
+        {
+            throw new PendingStepException();
+        }
     }
 }
