@@ -120,6 +120,41 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creating a video game unsuccessfully (invalid authorisation)")]
+        [NUnit.Framework.CategoryAttribute("sad")]
+        public async System.Threading.Tasks.Task CreatingAVideoGameUnsuccessfullyInvalidAuthorisation()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "sad"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Creating a video game unsuccessfully (invalid authorisation)", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 14
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 15
+ await testRunner.GivenAsync("I create a POST request with invalid authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 16
+ await testRunner.AndAsync("my request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 17
+ await testRunner.WhenAsync("I send the request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 18
+ await testRunner.ThenAsync("I receive a 403 Forbidden error code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

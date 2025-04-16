@@ -37,7 +37,10 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a POST request with invalid authorisation")]
         public void GivenICreateAPOSTRequestWithInvalidAuthorisation()
         {
-            throw new PendingStepException();
+            Client = new RestClient(ClientOptions);
+
+            Request = new RestRequest("/api/v2/videogame")
+                .AddQueryParameter("token", "invalid_token");
         }
 
         [When("I send the request to the specified endpoint")]
@@ -49,7 +52,7 @@ namespace VideoGameDatabaseTest.Steps
         [Then("I receive a {int} OK response code")]
         public void ThenIReceiveAOKResponseCode(int p0)
         {
-            Assert.That((int)Response.StatusCode, Is.EqualTo(p0) );
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
 
         [Then("the response JSON content is formatted correctly")]
@@ -63,10 +66,10 @@ namespace VideoGameDatabaseTest.Steps
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
 
-        [Then("I receive a {int} Unauthorized error code")]
-        public void ThenIReceiveAUnauthorizedErrorCode(int p0)
+        [Then("I receive a {int} Forbidden error code")]
+        public void ThenIReceiveAForbiddenErrorCode(int p0)
         {
-            throw new PendingStepException();
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
     }
 }
