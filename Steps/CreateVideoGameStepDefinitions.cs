@@ -43,5 +43,12 @@ namespace VideoGameDatabaseTest.Steps
         {
             Assert.That((int)Response.StatusCode, Is.EqualTo(p0) );
         }
+
+        [Then("the response JSON content is formatted correctly")]
+        public void ThenTheResponseJSONContentIsFormattedCorrectly()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }

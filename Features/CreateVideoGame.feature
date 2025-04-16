@@ -8,3 +8,4 @@ Scenario: Creating a video game successfully
 	And my request content is formatted correctly
 	When I send the request to the specified endpoint
 	Then I receive a 200 OK response code
+	And the response JSON content is formatted correctly
