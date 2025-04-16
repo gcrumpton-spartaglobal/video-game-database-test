@@ -1,9 +1,10 @@
 ﻿Feature: CreateVideoGame
 
-A short summary of the feature
+As a user, I want to be able to create a video game on the video game database using a POST request.
 
-@tag1
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+@happy
+Scenario: Creating a video game successfully
+	Given I create a POST request with authorisation
+	And my request content is formatted correctly
+	When I send the request to the specified endpoint
+	Then I receive a 200 OK response code
