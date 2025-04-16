@@ -37,7 +37,17 @@ namespace VideoGameDatabaseTest.Steps
         [Given("my request content is formatted incorrectly")]
         public void GivenMyRequestContentIsFormattedIncorrectly()
         {
-            throw new PendingStepException();
+            string newGameJsonString =
+                "{" +
+                    "\"category\": \"Platform\"," +
+                    "\"name\": \"Mario\"," +
+                    "\"rating\": \"Mature\"," +
+                    "\"releaseDate\": \"2012-05-04\"," +
+                    "\"reviewScore\": 85" +
+                    "\"wonAwards\" : true" +
+                "}";
+
+            Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
         [Given("I create a POST request with invalid authorisation")]
@@ -52,7 +62,7 @@ namespace VideoGameDatabaseTest.Steps
         [When("I send the request to the specified endpoint")]
         public void WhenISendTheRequestToTheSpecifiedEndpoint()
         {
-            Response = Client.Post(Request);
+            Response = Client.ExecutePost(Request);
         }
 
         [Then("I receive a {int} OK response code")]
@@ -81,7 +91,7 @@ namespace VideoGameDatabaseTest.Steps
         [Then("I receive a {int} Bad Request error code")]
         public void ThenIReceiveABadRequestErrorCode(int p0)
         {
-            throw new PendingStepException();
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
     }
 }
