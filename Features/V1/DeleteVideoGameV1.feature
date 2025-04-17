@@ -4,7 +4,7 @@ As a user, I want to be able to send a DELETE request to the '/api/v2/videogame/
 so that I can delete the video game that exists with a given ID.
 
 Scenario Outline: Check various valid and invalid IDs with valid authorisation
-	Given I create a DELETE request with valid authorisation with an ID of <ID>
+	Given I create a DELETE request with valid authorisation with an ID of <ID> for the "V1" API version
 	When I send the DELETE request to the specified endpoint
 	Then I receive a status code of <status_code> from the DELETE request
 Examples:
@@ -17,7 +17,7 @@ Examples:
 	| 11 | 404         |
 
 Scenario Outline: Check various valid and invalid IDs with invalid authorisation
-	Given I create a DELETE request with invalid authorisation with an ID of <ID>
+	Given I create a DELETE request with invalid authorisation with an ID of <ID> for the "V1" API version
 	When I send the DELETE request to the specified endpoint
 	Then I receive a status code of <status_code> from the DELETE request
 Examples: 

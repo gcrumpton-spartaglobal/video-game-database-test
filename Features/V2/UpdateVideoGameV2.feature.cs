@@ -110,7 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0} to the \"V2\" API" +
+                            " version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
  await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -151,7 +152,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 23
- await testRunner.GivenAsync(string.Format("I create a PUT request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0} to the \"V2\" API" +
+                            " version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 24
  await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -186,7 +188,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 34
- await testRunner.GivenAsync("I create a PUT request with valid authorisation with an ID of 1", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I create a PUT request with valid authorisation with an ID of 1 to the \"V2\" API v" +
+                        "ersion", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 35
  await testRunner.AndAsync("my PUT request content is formatted incorrectly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

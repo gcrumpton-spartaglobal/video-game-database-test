@@ -27,6 +27,22 @@ namespace VideoGameDatabaseTest.Steps
             Request = new RestRequest("/api/v2/videogame");
         }
 
+        [Given("I create a new GET request for the specified endpoint for the {string} API version")]
+        public void GivenICreateANewGETRequestForTheSpecifiedEndpointForTheAPIVersion(string p0)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p0 == "V1") 
+            {
+                Request = new RestRequest("/api/videogame");
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame");
+            }
+        }
+
+
         [When("I send a GET request to that endpoint")]
         public void GetEndpoint()
         {

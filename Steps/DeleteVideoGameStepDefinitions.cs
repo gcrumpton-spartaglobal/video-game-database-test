@@ -18,6 +18,42 @@ namespace VideoGameDatabaseTest.Steps
                 .AddHeader("Accept", "text/plain");
         }
 
+        [Given("I create a DELETE request with valid authorisation with an ID of {int} for the {string} API version")]
+        public void GivenICreateADELETERequestWithValidAuthorisationWithAnIDOfForTheAPIVersion(int p0, string p1)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p1 == "V1")
+            {
+                Request = new RestRequest("/api/videogame/" + p0)
+                    .AddQueryParameter("token", Token)
+                    .AddHeader("Accept", "text/plain");
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame/" + p0)
+                    .AddQueryParameter("token", Token)
+                    .AddHeader("Accept", "text/plain");
+            }
+        }
+
+        [Given("I create a DELETE request with invalid authorisation with an ID of {int} for the {string} API version")]
+        public void GivenICreateADELETERequestWithInvalidAuthorisationWithAnIDOfForTheAPIVersion(int p0, string p1)
+        {
+            if (p1 == "V1")
+            {
+                Request = new RestRequest("/api/videogame/" + p0)
+                    .AddQueryParameter("token", "invalid_token")
+                    .AddHeader("Accept", "text/plain");
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame/" + p0)
+                    .AddQueryParameter("token", "invalid_token")
+                    .AddHeader("Accept", "text/plain");
+            }
+        }
+
         [When("I send the DELETE request to the specified endpoint")]
         public void WhenISendTheDELETERequestToTheSpecifiedEndpoint()
         {

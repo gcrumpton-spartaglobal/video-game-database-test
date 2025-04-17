@@ -29,8 +29,8 @@ namespace VideoGameDatabaseTest.Features.V2
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "GetVideoGameByIdV2", "I want to be able to pass an id number in a GET request using the endpoint \'/api/" +
-                "v2/videogame/{id}\',\r\nand receive a JSON response for the game with that ID. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "GetVideoGameByIdV2", "I want to be able to pass an id number in a GET request using a specified end poi" +
+                "nt,\r\nand receive a JSON response for the game with that ID. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "GetVideoGameByIdV2.feature"
 #line hidden
@@ -112,7 +112,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0} for the " +
+                            "\"V2\" API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
  await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -153,7 +154,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 19
- await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0} for the " +
+                            "\"V2\" API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 20
  await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");

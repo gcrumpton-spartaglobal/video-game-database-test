@@ -110,7 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 7
- await testRunner.GivenAsync(string.Format("I create a DELETE request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a DELETE request with valid authorisation with an ID of {0} for the \"V1\"" +
+                            " API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
  await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -145,7 +146,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 20
- await testRunner.GivenAsync(string.Format("I create a DELETE request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a DELETE request with invalid authorisation with an ID of {0} for the \"V" +
+                            "1\" API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 21
  await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");

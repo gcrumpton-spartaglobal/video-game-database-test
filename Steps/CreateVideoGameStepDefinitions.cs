@@ -19,6 +19,41 @@ namespace VideoGameDatabaseTest.Steps
                 .AddQueryParameter("token", Token);
         }
 
+        [Given("I create a POST request with authorisation to the {string} API version")]
+        public void GivenICreateAPOSTRequestWithAuthorisationToTheAPIVersion(string p0)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p0 == "V1")
+            {
+                Request = new RestRequest("/api/videogame")
+                    .AddQueryParameter("token", Token);
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame")
+                    .AddQueryParameter("token", Token);
+            }
+        }
+
+        [Given("I create a POST request with invalid authorisation to the {string} API version")]
+        public void GivenICreateAPOSTRequestWithInvalidAuthorisationToTheAPIVersion(string p0)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p0 == "V1")
+            {
+                Request = new RestRequest("/api/videogame")
+                    .AddQueryParameter("token", "invalid_token");
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame")
+                    .AddQueryParameter("token", "invalid_token");
+            }
+        }
+
+
         [Given("my request content is formatted correctly")]
         public void GivenMyRequestContentIsFormattedCorrectly()
         {

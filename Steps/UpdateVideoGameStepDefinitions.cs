@@ -28,6 +28,40 @@ namespace VideoGameDatabaseTest.Steps
                 .AddQueryParameter("token", "invalid_token");
         }
 
+        [Given("I create a PUT request with valid authorisation with an ID of {int} to the {string} API version")]
+        public void GivenICreateAPUTRequestWithValidAuthorisationWithAnIDOfToTheAPIVersion(int p0, string p1)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p1 == "V1")
+            {
+                Request = new RestRequest("/api/videogame/" + p0)
+                    .AddQueryParameter("token", Token);
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame/" + p0)
+                    .AddQueryParameter("token", Token);
+            }
+        }
+
+        [Given("I create a PUT request with invalid authorisation with an ID of {int} to the {string} API version")]
+        public void GivenICreateAPUTRequestWithInvalidAuthorisationWithAnIDOfToTheAPIVersion(int p0, string p1)
+        {
+            Client = new RestClient(ClientOptions);
+
+            if (p1 == "V1")
+            {
+                Request = new RestRequest("/api/videogame/" + p0)
+                    .AddQueryParameter("token", "invalid_token");
+            }
+            else
+            {
+                Request = new RestRequest("/api/v2/videogame/" + p0)
+                    .AddQueryParameter("token", "invalid_token");
+            }
+        }
+
         [Given("my PUT request content is formatted correctly")]
         public void GivenMyPUTRequestContentIsFormattedCorrectly()
         {

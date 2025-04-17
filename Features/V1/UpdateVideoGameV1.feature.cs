@@ -29,9 +29,9 @@ namespace VideoGameDatabaseTest.Features.V1
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V1", "UpdateVideoGameV1", "As a user, I want to be able to make a PUT request to the \'/api/v2/videogame/{id}" +
-                "\' end point \r\ncontaining a JSON object matching an existing video game in order " +
-                "to update that \r\nvideo game\'s details.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V1", "UpdateVideoGameV1", "As a user, I want to be able to make a PUT request to the specified end point \r\nc" +
+                "ontaining a JSON object matching an existing video game in order to update that " +
+                "\r\nvideo game\'s details.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "UpdateVideoGameV1.feature"
 #line hidden
@@ -110,7 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0} to the \"V1\" API" +
+                            " version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
  await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -151,7 +152,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 23
- await testRunner.GivenAsync(string.Format("I create a PUT request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with invalid authorisation with an ID of {0} to the \"V1\" A" +
+                            "PI version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 24
  await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -186,7 +188,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 34
- await testRunner.GivenAsync("I create a PUT request with valid authorisation with an ID of 1", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I create a PUT request with valid authorisation with an ID of 1 to the \"V1\" API v" +
+                        "ersion", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 35
  await testRunner.AndAsync("my PUT request content is formatted incorrectly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

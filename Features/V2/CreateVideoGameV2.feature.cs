@@ -103,7 +103,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 7
- await testRunner.GivenAsync("I create a POST request with authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I create a POST request with authorisation to the \"V2\" API version", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
  await testRunner.AndAsync("my request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 15
- await testRunner.GivenAsync("I create a POST request with invalid authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I create a POST request with invalid authorisation to the \"V2\" API version", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 16
  await testRunner.AndAsync("my request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -176,7 +176,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 22
- await testRunner.GivenAsync("I create a POST request with authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I create a POST request with authorisation to the \"V2\" API version", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 23
  await testRunner.AndAsync("my request content is formatted incorrectly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

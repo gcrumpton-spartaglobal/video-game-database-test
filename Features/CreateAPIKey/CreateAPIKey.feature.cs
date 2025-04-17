@@ -29,7 +29,7 @@ namespace VideoGameDatabaseTest.Features.CreateAPIKey
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Create API Key", "CreateAPIKey", "As a user, I want to be able to send a POST request containing a username and pas" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/CreateAPIKey", "CreateAPIKey", "As a user, I want to be able to send a POST request containing a username and pas" +
                 "sword,\r\nso that I get a API key as a response.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "CreateAPIKey.feature"

@@ -4,7 +4,7 @@ As a user, I want to be able to create a video game on the video game database u
 
 @happy
 Scenario: Creating a video game successfully
-	Given I create a POST request with authorisation
+	Given I create a POST request with authorisation to the "V1" API version
 	And my request content is formatted correctly
 	When I send the request to the specified endpoint
 	Then I receive a 200 OK response code
@@ -12,14 +12,14 @@ Scenario: Creating a video game successfully
 
 @sad
 Scenario: Creating a video game unsuccessfully (invalid authorisation)
-	Given I create a POST request with invalid authorisation
+	Given I create a POST request with invalid authorisation to the "V1" API version
 	And my request content is formatted correctly
 	When I send the request to the specified endpoint
 	Then I receive a 403 Forbidden error code
 
 @sad
 Scenario: Creating a video game unsuccessfully (invalid JSON content)
-	Given I create a POST request with authorisation
+	Given I create a POST request with authorisation to the "V1" API version
 	And my request content is formatted incorrectly
 	When I send the request to the specified endpoint
 	Then I receive a 400 Bad Request error code
