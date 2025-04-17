@@ -37,6 +37,7 @@ namespace VideoGameDatabaseTest.Steps
         [Given("my request content is formatted incorrectly")]
         public void GivenMyRequestContentIsFormattedIncorrectly()
         {
+            //  Comma has been removed after the 85 to simulate invalid JSON
             string newGameJsonString =
                 "{" +
                     "\"category\": \"Platform\"," +

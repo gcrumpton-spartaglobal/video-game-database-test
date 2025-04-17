@@ -28,7 +28,6 @@ namespace VideoGameDatabaseTest.Steps
                 .AddQueryParameter("token", "invalid_token");
         }
 
-
         [Given("my PUT request content is formatted correctly")]
         public void GivenMyPUTRequestContentIsFormattedCorrectly()
         {
@@ -47,7 +46,18 @@ namespace VideoGameDatabaseTest.Steps
         [Given("my PUT request content is formatted incorrectly")]
         public void GivenMyPUTRequestContentIsFormattedIncorrectly()
         {
-            throw new PendingStepException();
+            //  Comma has been removed after the 85 to simulate invalid JSON
+            string newGameJsonString =
+                "{" +
+                    "\"category\": \"Platform\"," +
+                    "\"name\": \"Mario\"," +
+                    "\"rating\": \"Mature\"," +
+                    "\"releaseDate\": \"2012-05-04\"," +
+                    "\"reviewScore\": 85" +
+                    "\"wonAwards\": true" +
+                "}";
+
+            Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
         [When("I send the PUT request to the specified endpoint")]
@@ -76,7 +86,7 @@ namespace VideoGameDatabaseTest.Steps
         [Then("I receive a response with a {int} Bad Request error code")]
         public void ThenIReceiveAResponseWithABadRequestErrorCode(int p0)
         {
-            throw new PendingStepException();
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
     }
 }
