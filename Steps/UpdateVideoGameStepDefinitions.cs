@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
 
@@ -10,19 +11,37 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a PUT request with valid authorisation with an ID of {int}")]
         public void GivenICreateAPUTRequestWithValidAuthorisationWithAnIDOf(int p0)
         {
-            throw new PendingStepException();
+            Client = new RestClient(ClientOptions);
+
+            Request = new RestRequest("/api/v2/videogame/" + p0)
+                .AddQueryParameter("token", Token);
+        }
+
+        [Given("my PUT request content is formatted correctly")]
+        public void GivenMyPUTRequestContentIsFormattedCorrectly()
+        {
+            string newGameJsonString =
+                "{" +
+                    "\"category\": \"Platform\"," +
+                    "\"name\": \"Mario\"," +
+                    "\"rating\": \"Mature\"," +
+                    "\"releaseDate\": \"2012-05-04\"," +
+                    "\"reviewScore\": 85" +
+                "}";
+
+            Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
         [When("I send the PUT request to the specified endpoint")]
         public void WhenISendThePUTRequestToTheSpecifiedEndpoint()
         {
-            throw new PendingStepException();
+            Response = Client.ExecutePut(Request);
         }
 
         [Then("I receive a status code of {int}")]
         public void ThenIReceiveAStatusCodeOf(int p0)
         {
-            throw new PendingStepException();
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
     }
 }

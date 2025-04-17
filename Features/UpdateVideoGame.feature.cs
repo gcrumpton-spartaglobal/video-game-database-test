@@ -86,7 +86,12 @@ namespace video_game_database_test.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with valid authorisation")]
+        [NUnit.Framework.TestCaseAttribute("-1", "404", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "404", null)]
         [NUnit.Framework.TestCaseAttribute("1", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("10", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "404", null)]
         public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithValidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -108,9 +113,12 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.WhenAsync("I send the PUT request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 10
+ await testRunner.WhenAsync("I send the PUT request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 11
  await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
