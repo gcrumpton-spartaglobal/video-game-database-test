@@ -29,8 +29,9 @@ namespace video_game_database_test.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UpdateVideoGame", "As a user, I want to be able to make a PUT request containing a JSON object match" +
-                "ing an existing \r\nvideo game in order to update that video game\'s details.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UpdateVideoGame", "As a user, I want to be able to make a PUT request to the \'/api/v2/videogame/{id}" +
+                "\' end point \r\ncontaining a JSON object matching an existing video game in order " +
+                "to update that \r\nvideo game\'s details.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "UpdateVideoGame.feature"
 #line hidden
@@ -84,17 +85,16 @@ namespace video_game_database_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check various valid and invalid requests give the correct status codes")]
-        [NUnit.Framework.TestCaseAttribute("Token", "1", "200", null)]
-        public async System.Threading.Tasks.Task CheckVariousValidAndInvalidRequestsGiveTheCorrectStatusCodes(string token, string iD, string status_Code, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with valid authorisation")]
+        [NUnit.Framework.TestCaseAttribute("1", "200", null)]
+        public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithValidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("token", token);
             argumentsOfScenario.Add("ID", iD);
             argumentsOfScenario.Add("status_code", status_Code);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid requests give the correct status codes", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid IDs with valid authorisation", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -104,13 +104,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
- await testRunner.GivenAsync(string.Format("I create a PUT request using a token of {0}", token), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
 #line 8
- await testRunner.WhenAsync(string.Format("I send the request to the /api/v2/videogame/{0} end point", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.GivenAsync("I create a PUT request with valid authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
+ await testRunner.WhenAsync(string.Format("I send the request to the specified endpoint using an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 10
  await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
