@@ -17,3 +17,14 @@ Examples:
 	| 9  | 200         |
 	| 10 | 200         |
 	| 11 | 404         |
+
+Scenario Outline: Check various valid and invalid IDs with invalid authorisation
+	Given I create a PUT request with invalid authorisation with an ID of <ID>
+	And my PUT request content is formatted correctly
+	When I send the PUT request to the specified endpoint
+	Then I receive a status code of <status_code>
+Examples: 
+	| ID | status_code |
+	| 0  | 403         |
+	| 6  | 403         |
+	| 11 | 403         |

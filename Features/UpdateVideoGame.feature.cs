@@ -124,6 +124,44 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with invalid authorisation")]
+        [NUnit.Framework.TestCaseAttribute("0", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "403", null)]
+        public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithInvalidAuthorisation(string iD, string status_Code, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("ID", iD);
+            argumentsOfScenario.Add("status_code", status_Code);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid IDs with invalid authorisation", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 22
+ await testRunner.GivenAsync(string.Format("I create a PUT request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 23
+ await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 24
+ await testRunner.WhenAsync("I send the PUT request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 25
+ await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
