@@ -29,3 +29,11 @@ Examples:
 	| 0  | 403         |
 	| 6  | 403         |
 	| 11 | 403         |
+
+Scenario: Check valid ID response with valid authorisation but invalid request JSON content
+	Given I create a PUT request with valid authorisation with an ID of 1
+	And my PUT request content is formatted incorrectly
+	When I send the PUT request to the specified endpoint
+	Then I receive a response with a 400 Bad Request error code
+
+

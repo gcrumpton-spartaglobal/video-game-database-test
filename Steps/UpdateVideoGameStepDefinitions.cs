@@ -44,6 +44,12 @@ namespace VideoGameDatabaseTest.Steps
             Request.AddStringBody(newGameJsonString, ContentType.Json);
         }
 
+        [Given("my PUT request content is formatted incorrectly")]
+        public void GivenMyPUTRequestContentIsFormattedIncorrectly()
+        {
+            throw new PendingStepException();
+        }
+
         [When("I send the PUT request to the specified endpoint")]
         public void WhenISendThePUTRequestToTheSpecifiedEndpoint()
         {
@@ -67,5 +73,10 @@ namespace VideoGameDatabaseTest.Steps
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
 
+        [Then("I receive a response with a {int} Bad Request error code")]
+        public void ThenIReceiveAResponseWithABadRequestErrorCode(int p0)
+        {
+            throw new PendingStepException();
+        }
     }
 }
