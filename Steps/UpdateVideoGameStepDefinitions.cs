@@ -1,19 +1,20 @@
 using System;
 using Reqnroll;
+using RestSharp;
 
 namespace VideoGameDatabaseTest.Steps
 {
     [Binding]
-    public class UpdateVideoGameStepDefinitions
+    public class UpdateVideoGameStepDefinitions : BaseStepDefinitions
     {
-        [Given("I create a PUT request with valid authorisation")]
-        public void GivenICreateAPUTRequestWithValidAuthorisation()
+        [Given("I create a PUT request with valid authorisation with an ID of {int}")]
+        public void GivenICreateAPUTRequestWithValidAuthorisationWithAnIDOf(int p0)
         {
             throw new PendingStepException();
         }
 
-        [When("I send the request to the specified endpoint using an ID of {int}")]
-        public void WhenISendTheRequestToTheSpecifiedEndpointUsingAnIDOf(int p0)
+        [When("I send the PUT request to the specified endpoint")]
+        public void WhenISendThePUTRequestToTheSpecifiedEndpoint()
         {
             throw new PendingStepException();
         }

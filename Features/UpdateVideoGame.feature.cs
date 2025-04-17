@@ -105,10 +105,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync("I create a PUT request with valid authorisation", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.WhenAsync(string.Format("I send the request to the specified endpoint using an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("I send the PUT request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
  await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

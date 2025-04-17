@@ -5,8 +5,8 @@ containing a JSON object matching an existing video game in order to update that
 video game's details.
 
 Scenario Outline: Check various valid and invalid IDs with valid authorisation
-	Given I create a PUT request with valid authorisation
-	When I send the request to the specified endpoint using an ID of <ID>
+	Given I create a PUT request with valid authorisation with an ID of <ID>
+	When I send the PUT request to the specified endpoint
 	Then I receive a status code of <status_code>
 Examples:
 	| ID | status_code |
