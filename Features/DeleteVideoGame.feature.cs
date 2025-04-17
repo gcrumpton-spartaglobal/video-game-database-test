@@ -113,16 +113,10 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.GivenAsync(string.Format("I create a DELETE request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
- await testRunner.AndAsync("my DELETE request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 9
  await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 10
- await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 11
- await testRunner.AndAsync("The DELETE request response JSON content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 9
+ await testRunner.ThenAsync(string.Format("I receive a status code of {0} from the DELETE request", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -140,7 +134,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("ID", iD);
             argumentsOfScenario.Add("status_code", status_Code);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid IDs with invalid authorisation", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 21
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -150,52 +144,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 22
+#line 20
  await testRunner.GivenAsync(string.Format("I create a DELETE request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 23
- await testRunner.AndAsync("my DELETE request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 24
+#line 21
  await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 25
- await testRunner.ThenAsync(string.Format("I receive a status code of {0}", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check valid ID response with valid authorisation but invalid request JSON content" +
-            "")]
-        public async System.Threading.Tasks.Task CheckValidIDResponseWithValidAuthorisationButInvalidRequestJSONContent()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check valid ID response with valid authorisation but invalid request JSON content" +
-                    "", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 32
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 33
- await testRunner.GivenAsync("I create a DELETE request with valid authorisation with an ID of 1", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 34
- await testRunner.AndAsync("my DELETE request content is formatted incorrectly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 35
- await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 36
- await testRunner.ThenAsync("I receive a response with a 400 Bad Request error code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 22
+ await testRunner.ThenAsync(string.Format("I receive a status code of {0} from the DELETE request", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

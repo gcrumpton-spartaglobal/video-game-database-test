@@ -1,46 +1,44 @@
 using System;
 using NUnit.Framework;
 using Reqnroll;
+using RestSharp;
 
 namespace VideoGameDatabaseTest.Steps
 {
     [Binding]
-    public class DeleteVideoGameStepDefinitions
+    public class DeleteVideoGameStepDefinitions : BaseStepDefinitions
     {
         [Given("I create a DELETE request with valid authorisation with an ID of {int}")]
         public void GivenICreateADELETERequestWithValidAuthorisationWithAnIDOf(int p0)
         {
-            throw new PendingStepException();
-        }
+            Client = new RestClient(ClientOptions);
 
-        [Given("my DELETE request content is formatted correctly")]
-        public void GivenMyDELETERequestContentIsFormattedCorrectly()
-        {
-            throw new PendingStepException();
+            Request = new RestRequest("/api/v2/videogame/" + p0)
+                .AddQueryParameter("token", Token)
+                .AddHeader("Accept", "text/plain");
         }
 
         [When("I send the DELETE request to the specified endpoint")]
         public void WhenISendTheDELETERequestToTheSpecifiedEndpoint()
         {
-            throw new PendingStepException();
-        }
-
-        [Then("The DELETE request response JSON content is formatted correctly")]
-        public void ThenTheDELETERequestResponseJSONContentIsFormattedCorrectly()
-        {
-            throw new PendingStepException();
+            Response = Client.ExecuteDelete(Request);
         }
 
         [Given("I create a DELETE request with invalid authorisation with an ID of {int}")]
         public void GivenICreateADELETERequestWithInvalidAuthorisationWithAnIDOf(int p0)
         {
-            throw new PendingStepException();
+            Client = new RestClient(ClientOptions);
+
+            Request = new RestRequest("/api/v2/videogame/" + p0)
+                .AddQueryParameter("token", "invalid_token")
+                .AddHeader("Accept", "text/plain");
         }
 
-        [Given("my DELETE request content is formatted incorrectly")]
-        public void GivenMyDELETERequestContentIsFormattedIncorrectly()
+        [Then("I receive a status code of {int} from the DELETE request")]
+        public void ThenIReceiveAStatusCodeOfFromTheDELETERequest(int p0)
         {
-            throw new PendingStepException();
+            Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
+
     }
 }
