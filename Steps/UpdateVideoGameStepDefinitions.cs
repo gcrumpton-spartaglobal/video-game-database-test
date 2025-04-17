@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
@@ -53,5 +55,17 @@ namespace VideoGameDatabaseTest.Steps
         {
             Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
+
+        [Then("The PUT request response JSON content is formatted correctly")]
+        public void ThenThePUTRequestResponseJSONContentIsFormattedCorrectly()
+        {
+            var responseContent = JToken.Parse(Response.Content);
+            var jsonSchema = JSchema.Parse(File
+                .ReadAllText($"{System.IO.Directory.GetParent("../../../")}/Resources/Schemas/update_video_game.json"
+                ));
+
+            Assert.That(responseContent.IsValid(jsonSchema), Is.True);
+        }
+
     }
 }

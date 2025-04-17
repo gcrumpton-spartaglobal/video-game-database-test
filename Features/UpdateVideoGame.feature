@@ -9,6 +9,7 @@ Scenario Outline: Check various valid and invalid IDs with valid authorisation
 	And my PUT request content is formatted correctly
 	When I send the PUT request to the specified endpoint
 	Then I receive a status code of <status_code>
+	And The PUT request response JSON content is formatted correctly
 Examples:
 	| ID | status_code |
 	| -1 | 404         |

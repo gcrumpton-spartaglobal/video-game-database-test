@@ -1,0 +1,8 @@
+{
+  "category": "string",
+  "id": "integer",
+  "name": "string",
+  "rating": "string",
+  "releaseDate": "string",
+  "reviewScore": "integer"
+}
