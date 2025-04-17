@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RestSharp;
+using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace VideoGameDatabaseTest.Steps
         private static IRestClient _client;
         private RestRequest _request;
         private RestResponse _response;
-        private RestClientOptions _clientOptions = new RestClientOptions("https://videogamedb.uk:443");
+        private static RestClientOptions _clientOptions;
         private static AppSettings _myConfig;
 
         // Stores read-in values from appsettings.config
@@ -25,7 +26,7 @@ namespace VideoGameDatabaseTest.Steps
         public static IRestClient Client { get => _client; set => _client = value; }
         public RestRequest Request { get => _request; set => _request = value; }
         public RestResponse Response { get => _response; set => _response = value; }
-        public RestClientOptions ClientOptions { get => _clientOptions; }
+        public static RestClientOptions ClientOptions { get => _clientOptions; set => _clientOptions = value; }
         internal static AppSettings MyConfig { get => _myConfig; set => _myConfig = value; }
 
         // Getters and setters for read-in config values
@@ -54,6 +55,10 @@ namespace VideoGameDatabaseTest.Steps
             Password = MyConfig.Password;
             Token = MyConfig.Token;
 
+            ClientOptions = new RestClientOptions("https://videogamedb.uk:443")
+            {
+                Authenticator = new JwtAuthenticator(Token)
+            };
         }
     }
 }
