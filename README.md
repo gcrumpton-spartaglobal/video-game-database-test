@@ -52,3 +52,7 @@ Create a GitHub repository secret, called 'APP_SETTINGS' and copy and paste the 
         <td colspan=6><b>Further Comments:</b> The https://videogamedb.uk/ website shows a padlock next to the 'create a video game' action, thus suggesting that a valid API key is required to successfully send the request.</td>
     </tbody>
 </table>
+
+# 3.0 Important Notes
+## 3.1 Failing Tests
+A number of tests may fail, for example the 'Creating a video game unsuccessfully (invalid authorisation)' scenario. This is because a defect has been located by these tests and thus I've decided to leave them in a failing state. This does however mean that the GitHub workflow always fails.
