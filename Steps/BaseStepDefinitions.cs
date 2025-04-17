@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoGameDatabaseTest.Resources.Config;
 
-namespace video_game_database_test.Steps.V2
+namespace VideoGameDatabaseTest.Steps
 {
     public class BaseStepDefinitions
     {

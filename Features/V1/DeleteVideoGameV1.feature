@@ -1,4 +1,4 @@
-﻿Feature: DeleteVideoGame
+﻿Feature: DeleteVideoGameV1
 
 As a user, I want to be able to send a DELETE request to the '/api/v2/videogame/{int}' end point
 so that I can delete the video game that exists with a given ID.

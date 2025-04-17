@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace video_game_database_test.Features.V2
+namespace VideoGameDatabaseTest.Features.V1
 {
     using Reqnroll;
     using System;
@@ -20,19 +20,19 @@ namespace video_game_database_test.Features.V2
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CreateAPIKey")]
+    [NUnit.Framework.DescriptionAttribute("GetAllVideoGamesV1")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class CreateAPIKeyFeature
+    public partial class GetAllVideoGamesV1Feature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "CreateAPIKey", "As a user, I want to be able to send a POST request containing a username and pas" +
-                "sword,\r\nso that I get a API key as a response.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V1", "GetAllVideoGamesV1", "I want to send a GET request to the \'/api/v2/videogame\' endpoint,\r\nand receive JS" +
+                "ON in the response containing all of the video games in the database.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "CreateAPIKey.feature"
+#line 1 "GetAllVideoGamesV1.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -84,13 +84,13 @@ namespace video_game_database_test.Features.V2
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create API key")]
-        public async System.Threading.Tasks.Task CreateAPIKey()
+        [NUnit.Framework.DescriptionAttribute("Check get all video games")]
+        public async System.Threading.Tasks.Task CheckGetAllVideoGames()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Create API key", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check get all video games", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -100,17 +100,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
- await testRunner.GivenAsync("I create a POST request with a given username and password", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
 #line 8
- await testRunner.WhenAsync("I send the POST request", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.GivenAsync("I create a new GET request for the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.ThenAsync("I receive a response with a 200 OK status code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.WhenAsync("I send a GET request to that endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
- await testRunner.AndAsync("The response JSON content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.ThenAsync("I receive a success code of 200 OK", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

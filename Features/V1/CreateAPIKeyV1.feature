@@ -1,4 +1,4 @@
-﻿Feature: CreateAPIKey
+﻿Feature: CreateAPIKeyV1
 
 As a user, I want to be able to send a POST request containing a username and password,
 so that I get a API key as a response.

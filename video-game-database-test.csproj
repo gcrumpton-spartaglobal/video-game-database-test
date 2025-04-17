@@ -2,13 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>video_game_database_test</RootNamespace>
+    <RootNamespace>VideoGameDatabaseTest</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\CreateAPIKey.feature.cs" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\CreateVideoGame.feature.cs" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\DeleteVideoGame.feature.cs" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\GetAllVideoGames.feature.cs" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\GetVideoGameById.feature.cs" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Features\V1\UpdateVideoGame.feature.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
@@ -31,14 +40,57 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\V1\" />
-    <Folder Include="Steps\V1\" />
+    <Compile Update="Features\V1\CreateAPIKeyv1.feature.cs">
+      <DependentUpon>CreateAPIKeyV1.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\V1\CreateVideoGameV1.feature.cs">
+      <DependentUpon>CreateVideoGameV1.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\V1\DeleteVideoGameV1.feature.cs">
+      <DependentUpon>DeleteVideoGameV1.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\V1\GetAllVideoGamesV1.feature.cs">
+      <DependentUpon>GetAllVideoGamesV1.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\V1\GetVideoGameByIdV1.feature.cs">
+      <DependentUpon>GetVideoGameByIdV1.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\V1\UpdateVideoGameV1.feature.cs">
+      <DependentUpon>UpdateVideoGameV1.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Resources\Schemas\create_api_key.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ReqnrollFeatureFiles Update="Features\V1\CreateAPIKeyV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\V1\CreateVideoGameV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\V1\DeleteVideoGameV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\V1\GetAllVideoGamesV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\V1\GetVideoGameByIdV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
+    <ReqnrollFeatureFiles Update="Features\V1\UpdateVideoGameV1.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </ReqnrollFeatureFiles>
   </ItemGroup>
 
 </Project>

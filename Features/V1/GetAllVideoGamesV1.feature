@@ -1,4 +1,4 @@
-﻿Feature: GetAllVideoGames
+﻿Feature: GetAllVideoGamesV1
 
 I want to send a GET request to the '/api/v2/videogame' endpoint,
 and receive JSON in the response containing all of the video games in the database.

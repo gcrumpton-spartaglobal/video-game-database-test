@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace video_game_database_test.Features.V2
+namespace VideoGameDatabaseTest.Features.V1
 {
     using Reqnroll;
     using System;
@@ -20,19 +20,19 @@ namespace video_game_database_test.Features.V2
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("GetVideoGameById")]
+    [NUnit.Framework.DescriptionAttribute("GetVideoGameByIdV1")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class GetVideoGameByIdFeature
+    public partial class GetVideoGameByIdV1Feature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "GetVideoGameById", "I want to be able to pass an id number in a GET request using the endpoint \'/api/" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V1", "GetVideoGameByIdV1", "I want to be able to pass an id number in a GET request using the endpoint \'/api/" +
                 "v2/videogame/{id}\',\r\nand receive a JSON response for the game with that ID. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "GetVideoGameById.feature"
+#line 1 "GetVideoGameByIdV1.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using VideoGameDatabaseTest.Resources.Config;
 
-namespace video_game_database_test.Steps.V2
+namespace VideoGameDatabaseTest.Steps
 {
     [Binding]
     public class GetAllVideoGamesSteps : BaseStepDefinitions

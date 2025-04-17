@@ -1,4 +1,4 @@
-﻿Feature: GetVideoGameById
+﻿Feature: GetVideoGameByIdV1
 
 I want to be able to pass an id number in a GET request using the endpoint '/api/v2/videogame/{id}',
 and receive a JSON response for the game with that ID. 

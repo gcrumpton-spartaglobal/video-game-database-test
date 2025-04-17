@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace video_game_database_test.Features.V2
+namespace VideoGameDatabaseTest.Features.V2
 {
     using Reqnroll;
     using System;
@@ -20,20 +20,20 @@ namespace video_game_database_test.Features.V2
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("DeleteVideoGame")]
+    [NUnit.Framework.DescriptionAttribute("DeleteVideoGameV2")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class DeleteVideoGameFeature
+    public partial class DeleteVideoGameV2Feature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "DeleteVideoGame", "As a user, I want to be able to send a DELETE request to the \'/api/v2/videogame/{" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "DeleteVideoGameV2", "As a user, I want to be able to send a DELETE request to the \'/api/v2/videogame/{" +
                 "int}\' end point\r\nso that I can delete the video game that exists with a given ID" +
                 ".", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "DeleteVideoGame.feature"
+#line 1 "DeleteVideoGameV2.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

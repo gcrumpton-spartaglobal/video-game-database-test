@@ -1,4 +1,4 @@
-﻿Feature: UpdateVideoGame
+﻿Feature: UpdateVideoGameV1
 
 As a user, I want to be able to make a PUT request to the '/api/v2/videogame/{id}' end point 
 containing a JSON object matching an existing video game in order to update that 

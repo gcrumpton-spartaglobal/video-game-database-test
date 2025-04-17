@@ -1,4 +1,4 @@
-﻿Feature: CreateVideoGame
+﻿Feature: CreateVideoGameV2
 
 As a user, I want to be able to create a video game on the video game database using a POST request.
 
