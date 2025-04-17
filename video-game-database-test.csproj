@@ -31,7 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\V1\" />
+    <Folder Include="Steps\V1\" />
   </ItemGroup>
 
   <ItemGroup>

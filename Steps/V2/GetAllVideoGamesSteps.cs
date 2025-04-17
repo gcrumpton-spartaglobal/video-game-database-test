@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using VideoGameDatabaseTest.Resources.Config;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     [Binding]
     public class GetAllVideoGamesSteps : BaseStepDefinitions
     {
-        [BeforeScenario] 
-        public void BeforeScenario() 
+        [BeforeScenario]
+        public void BeforeScenario()
         {
             SetupConfig();
         }
@@ -28,13 +28,13 @@ namespace VideoGameDatabaseTest.Steps
         }
 
         [When("I send a GET request to that endpoint")]
-        public void GetEndpoint() 
+        public void GetEndpoint()
         {
             Response = Client.Get(Request);
         }
 
         [Then("I receive a success code of 200 OK")]
-        public void Receive200OK() 
+        public void Receive200OK()
         {
             Assert.That(Response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }

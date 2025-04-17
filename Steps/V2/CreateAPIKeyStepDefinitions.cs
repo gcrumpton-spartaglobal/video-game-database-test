@@ -5,7 +5,7 @@ using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     [Binding]
     public class CreateAPIKeyStepDefinitions : BaseStepDefinitions
@@ -19,8 +19,8 @@ namespace VideoGameDatabaseTest.Steps
             string password = "admin";
 
             Request = new RestRequest("/api/authenticate")
-                .AddJsonBody(new Dictionary<string, string> { 
-                    {"username", username }, {"password", password } 
+                .AddJsonBody(new Dictionary<string, string> {
+                    {"username", username }, {"password", password }
                 });
         }
 
@@ -41,7 +41,7 @@ namespace VideoGameDatabaseTest.Steps
         {
             var responseContent = JToken.Parse(Response.Content);
             var jsonSchema = JSchema.Parse(File
-                .ReadAllText($"{System.IO.Directory.GetParent("../../../")}/Resources/Schemas/create_video_game.json"
+                .ReadAllText($"{Directory.GetParent("../../../")}/Resources/Schemas/create_video_game.json"
                 ));
 
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);

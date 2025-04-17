@@ -5,7 +5,7 @@ using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     [Binding]
     public class CreateVideoGameStepDefinitions : BaseStepDefinitions
@@ -22,7 +22,7 @@ namespace VideoGameDatabaseTest.Steps
         [Given("my request content is formatted correctly")]
         public void GivenMyRequestContentIsFormattedCorrectly()
         {
-            string newGameJsonString = 
+            string newGameJsonString =
                 "{" +
                     "\"category\": \"Platform\"," +
                     "\"name\": \"Mario\"," +
@@ -77,7 +77,7 @@ namespace VideoGameDatabaseTest.Steps
         {
             var responseContent = JToken.Parse(Response.Content);
             var jsonSchema = JSchema.Parse(File
-                .ReadAllText($"{System.IO.Directory.GetParent("../../../")}/Resources/Schemas/create_api_key.json"
+                .ReadAllText($"{Directory.GetParent("../../../")}/Resources/Schemas/create_api_key.json"
                 ));
 
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);

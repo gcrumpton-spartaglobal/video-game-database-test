@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoGameDatabaseTest.Resources.Config;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     public class BaseStepDefinitions
     {
@@ -25,7 +25,7 @@ namespace VideoGameDatabaseTest.Steps
         public static IRestClient Client { get => _client; set => _client = value; }
         public RestRequest Request { get => _request; set => _request = value; }
         public RestResponse Response { get => _response; set => _response = value; }
-        public RestClientOptions ClientOptions { get => _clientOptions;}
+        public RestClientOptions ClientOptions { get => _clientOptions; }
         internal static AppSettings MyConfig { get => _myConfig; set => _myConfig = value; }
 
         // Getters and setters for read-in config values
@@ -35,7 +35,7 @@ namespace VideoGameDatabaseTest.Steps
 
         public static void SetupConfig()
         {
-            string configSettingPath = System.IO.Directory.GetParent(@"../../../").FullName
+            string configSettingPath = Directory.GetParent(@"../../../").FullName
             + Path.DirectorySeparatorChar + "Resources/Config/appsettings.json";
 
             ConfigurationBuilder builder = new ConfigurationBuilder();

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace video_game_database_test.Features
+namespace video_game_database_test.Features.V2
 {
     using Reqnroll;
     using System;
@@ -29,7 +29,7 @@ namespace video_game_database_test.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CreateVideoGame", "As a user, I want to be able to create a video game on the video game database us" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "CreateVideoGame", "As a user, I want to be able to create a video game on the video game database us" +
                 "ing a POST request.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "CreateVideoGame.feature"

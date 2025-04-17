@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace video_game_database_test.Features
+namespace video_game_database_test.Features.V2
 {
     using Reqnroll;
     using System;
@@ -20,19 +20,20 @@ namespace video_game_database_test.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("GetVideoGameById")]
+    [NUnit.Framework.DescriptionAttribute("DeleteVideoGame")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class GetVideoGameByIdFeature
+    public partial class DeleteVideoGameFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "GetVideoGameById", "I want to be able to pass an id number in a GET request using the endpoint \'/api/" +
-                "v2/videogame/{id}\',\r\nand receive a JSON response for the game with that ID. ", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V2", "DeleteVideoGame", "As a user, I want to be able to send a DELETE request to the \'/api/v2/videogame/{" +
+                "int}\' end point\r\nso that I can delete the video game that exists with a given ID" +
+                ".", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "GetVideoGameById.feature"
+#line 1 "DeleteVideoGame.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -84,24 +85,21 @@ namespace video_game_database_test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check various valid IDs return their respective games")]
-        [NUnit.Framework.CategoryAttribute("happy")]
-        [NUnit.Framework.TestCaseAttribute("1", null)]
-        [NUnit.Framework.TestCaseAttribute("2", null)]
-        [NUnit.Framework.TestCaseAttribute("3", null)]
-        public async System.Threading.Tasks.Task CheckVariousValidIDsReturnTheirRespectiveGames(string iD, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with valid authorisation")]
+        [NUnit.Framework.TestCaseAttribute("-1", "404", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "404", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("10", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "404", null)]
+        public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithValidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "happy"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("ID", iD);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid IDs return their respective games", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+            argumentsOfScenario.Add("status_code", status_Code);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid IDs with valid authorisation", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -111,38 +109,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
+#line 7
+ await testRunner.GivenAsync(string.Format("I create a DELETE request with valid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
 #line 8
- await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
- await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 10
- await testRunner.ThenAsync("I receive a status code of 200 OK", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync(string.Format("I receive a status code of {0} from the DELETE request", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check various invalid IDs returns a 404 error code")]
-        [NUnit.Framework.CategoryAttribute("sad")]
-        [NUnit.Framework.TestCaseAttribute("-1", null)]
-        [NUnit.Framework.TestCaseAttribute("11", null)]
-        [NUnit.Framework.TestCaseAttribute("99", null)]
-        public async System.Threading.Tasks.Task CheckVariousInvalidIDsReturnsA404ErrorCode(string iD, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with invalid authorisation")]
+        [NUnit.Framework.TestCaseAttribute("0", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "403", null)]
+        public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithInvalidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "sad"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("ID", iD);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various invalid IDs returns a 404 error code", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+            argumentsOfScenario.Add("status_code", status_Code);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check various valid and invalid IDs with invalid authorisation", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -152,14 +144,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 19
- await testRunner.GivenAsync(string.Format("I am creating a GET request for the specified endpoint with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
 #line 20
- await testRunner.WhenAsync("I send the GET request and receive a response", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.GivenAsync(string.Format("I create a DELETE request with invalid authorisation with an ID of {0}", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 21
- await testRunner.ThenAsync("I receive a status code of 404 NotFound", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 22
+ await testRunner.ThenAsync(string.Format("I receive a status code of {0} from the DELETE request", status_Code), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

@@ -5,7 +5,7 @@ using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     [Binding]
     public class UpdateVideoGameStepDefinitions : BaseStepDefinitions
@@ -77,7 +77,7 @@ namespace VideoGameDatabaseTest.Steps
         {
             var responseContent = JToken.Parse(Response.Content);
             var jsonSchema = JSchema.Parse(File
-                .ReadAllText($"{System.IO.Directory.GetParent("../../../")}/Resources/Schemas/update_video_game.json"
+                .ReadAllText($"{Directory.GetParent("../../../")}/Resources/Schemas/update_video_game.json"
                 ));
 
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);

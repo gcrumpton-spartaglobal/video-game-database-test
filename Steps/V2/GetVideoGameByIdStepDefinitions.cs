@@ -4,7 +4,7 @@ using System.Net;
 using Reqnroll;
 using RestSharp;
 
-namespace VideoGameDatabaseTest.Steps
+namespace video_game_database_test.Steps.V2
 {
     [Binding]
     public class GetVideoGameByIdStepDefinitions : BaseStepDefinitions
