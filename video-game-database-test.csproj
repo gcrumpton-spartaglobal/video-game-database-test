@@ -40,8 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\V1\CreateAPIKeyv1.feature.cs">
-      <DependentUpon>CreateAPIKeyV1.feature</DependentUpon>
+    <Compile Update="Features\Create API Key\CreateAPIKey.feature.cs">
+      <DependentUpon>CreateAPIKey.feature</DependentUpon>
     </Compile>
     <Compile Update="Features\V1\CreateVideoGameV1.feature.cs">
       <DependentUpon>CreateVideoGameV1.feature</DependentUpon>
@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ReqnrollFeatureFiles Update="Features\V1\CreateAPIKeyV1.feature">
+    <ReqnrollFeatureFiles Update="Features\Create API Key\CreateAPIKey.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </ReqnrollFeatureFiles>

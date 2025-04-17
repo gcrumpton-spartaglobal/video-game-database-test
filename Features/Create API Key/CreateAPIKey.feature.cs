@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace VideoGameDatabaseTest.Features.V1
+namespace VideoGameDatabaseTest.Features.CreateAPIKey
 {
     using Reqnroll;
     using System;
@@ -20,19 +20,19 @@ namespace VideoGameDatabaseTest.Features.V1
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CreateAPIKeyV1")]
+    [NUnit.Framework.DescriptionAttribute("CreateAPIKey")]
     [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class CreateAPIKeyV1Feature
+    public partial class CreateAPIKeyFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/V1", "CreateAPIKeyV1", "As a user, I want to be able to send a POST request containing a username and pas" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Create API Key", "CreateAPIKey", "As a user, I want to be able to send a POST request containing a username and pas" +
                 "sword,\r\nso that I get a API key as a response.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "CreateAPIKeyV1.feature"
+#line 1 "CreateAPIKey.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
