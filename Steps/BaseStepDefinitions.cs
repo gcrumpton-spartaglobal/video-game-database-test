@@ -14,7 +14,7 @@ namespace VideoGameDatabaseTest.Steps
         private static IRestClient _client;
         private RestRequest _request;
         private RestResponse _response;
-        private RestClientOptions _clientOptions = new RestClientOptions("https://videogamedb.uk");
+        private RestClientOptions _clientOptions = new RestClientOptions("https://videogamedb.uk:443");
         private static AppSettings _myConfig;
 
         // Stores read-in values from appsettings.config
