@@ -10,6 +10,12 @@ namespace VideoGameDatabaseTest.Steps
     [Binding]
     public class CreateVideoGameStepDefinitions : BaseStepDefinitions
     {
+        [BeforeScenario]
+        public void BeforeScenario()
+        {
+            SetupConfig();
+        }
+
         [Given("I create a POST request with authorisation")]
         public void GivenICreateAPOSTRequestWithAuthorisation()
         {

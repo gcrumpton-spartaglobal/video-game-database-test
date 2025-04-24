@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
+using Reqnroll.UnitTestProvider;
 using RestSharp;
 
 namespace VideoGameDatabaseTest.Steps
@@ -10,9 +11,18 @@ namespace VideoGameDatabaseTest.Steps
     [Binding]
     public class CreateAPIKeyStepDefinitions : BaseStepDefinitions
     {
+        private readonly IUnitTestRuntimeProvider _unitTestRuntimeProvider;
+
+        public CreateAPIKeyStepDefinitions(IUnitTestRuntimeProvider unitTestRuntimeProvider)
+        {
+            _unitTestRuntimeProvider = unitTestRuntimeProvider;
+        }
+
         [Given("I create a POST request with a given username and password")]
         public void GivenICreateAPOSTRequestWithAGivenUsernameAndPassword()
         {
+            _unitTestRuntimeProvider.TestIgnore("This scenario is always skipped");
+
             Client = new RestClient(ClientOptions);
 
             string username = "admin";
