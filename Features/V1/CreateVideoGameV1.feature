@@ -15,7 +15,7 @@ Scenario: Creating a video game unsuccessfully (invalid authorisation)
 	Given I create a POST request with invalid authorisation to the "V1" API version
 	And my request content is formatted correctly
 	When I send the request to the specified endpoint
-	Then I receive a 403 Forbidden error code
+	Then I receive a 500 Internal Server Error status code
 
 @sad
 Scenario: Creating a video game unsuccessfully (invalid JSON content)

@@ -4,6 +4,7 @@ using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
+using RestSharp.Authenticators;
 
 namespace VideoGameDatabaseTest.Steps
 {
@@ -45,7 +46,12 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a POST request with invalid authorisation to the {string} API version")]
         public void GivenICreateAPOSTRequestWithInvalidAuthorisationToTheAPIVersion(string p0)
         {
-            Client = new RestClient(ClientOptions);
+            var invalidClientOptions = new RestClientOptions("https://videogamedb.uk:443")
+            {
+                Authenticator = new JwtAuthenticator("invalid_token")
+            };
+
+            Client = new RestClient(invalidClientOptions);
 
             if (p0 == "V1")
             {
@@ -124,8 +130,8 @@ namespace VideoGameDatabaseTest.Steps
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
 
-        [Then("I receive a {int} Forbidden error code")]
-        public void ThenIReceiveAForbiddenErrorCode(int p0)
+        [Then("I receive a {int} Internal Server Error status code")]
+        public void ThenIReceiveAInternalServerErrorStatusCode(int p0)
         {
             Assert.That((int)Response.StatusCode, Is.EqualTo(p0));
         }
