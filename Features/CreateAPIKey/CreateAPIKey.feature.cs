@@ -112,6 +112,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  await testRunner.AndAsync("The response JSON content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 11
+ await testRunner.AndAsync("I save the API key to use with other features", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }

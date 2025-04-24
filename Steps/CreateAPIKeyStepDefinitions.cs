@@ -46,5 +46,12 @@ namespace VideoGameDatabaseTest.Steps
 
             Assert.That(responseContent.IsValid(jsonSchema), Is.True);
         }
+
+        [Then("I save the API key to use with other features")]
+        public void ThenISaveTheAPIKeyToUseWithOtherFeatures()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }

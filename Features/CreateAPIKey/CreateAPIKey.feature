@@ -8,3 +8,4 @@ Scenario: Create API key
 	When I send the POST request
 	Then I receive a response with a 200 OK status code
 	And The response JSON content is formatted correctly
+	And I save the API key to use with other features
