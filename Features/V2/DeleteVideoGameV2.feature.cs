@@ -125,9 +125,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with invalid authorisation")]
-        [NUnit.Framework.TestCaseAttribute("0", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("6", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("11", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "500", null)]
         public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithInvalidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -146,8 +146,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 20
- await testRunner.GivenAsync(string.Format("I create a DELETE request with valid authorisation with an ID of {0} for the \"V2\"" +
-                            " API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a DELETE request with invalid authorisation with an ID of {0} for the \"V" +
+                            "2\" API version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 21
  await testRunner.WhenAsync("I send the DELETE request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");

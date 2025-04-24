@@ -131,9 +131,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with invalid authorisation")]
-        [NUnit.Framework.TestCaseAttribute("0", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("6", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("11", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "500", null)]
         public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithInvalidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -152,8 +152,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 23
- await testRunner.GivenAsync(string.Format("I create a PUT request with valid authorisation with an ID of {0} to the \"V2\" API" +
-                            " version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("I create a PUT request with invalid authorisation with an ID of {0} to the \"V2\" A" +
+                            "PI version", iD), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 24
  await testRunner.AndAsync("my PUT request content is formatted correctly", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

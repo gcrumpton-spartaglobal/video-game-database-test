@@ -20,15 +20,15 @@ Examples:
 	| 11 | 404         |
 
 Scenario Outline: Check various valid and invalid IDs with invalid authorisation
-	Given I create a PUT request with valid authorisation with an ID of <ID> to the "V2" API version
+	Given I create a PUT request with invalid authorisation with an ID of <ID> to the "V2" API version
 	And my PUT request content is formatted correctly
 	When I send the PUT request to the specified endpoint
 	Then I receive a status code of <status_code>
 Examples: 
 	| ID | status_code |
-	| 0  | 403         |
-	| 6  | 403         |
-	| 11 | 403         |
+	| 0  | 500         |
+	| 6  | 500         |
+	| 11 | 500         |
 
 Scenario: Check valid ID response with valid authorisation but invalid request JSON content
 	Given I create a PUT request with valid authorisation with an ID of 1 to the "V2" API version

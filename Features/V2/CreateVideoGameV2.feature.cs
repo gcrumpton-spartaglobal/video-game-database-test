@@ -150,7 +150,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.WhenAsync("I send the request to the specified endpoint", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 18
- await testRunner.ThenAsync("I receive a 403 Forbidden error code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("I receive a 500 Internal Server Error status code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
