@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
+using RestSharp.Authenticators;
 
 namespace VideoGameDatabaseTest.Steps
 {
@@ -40,6 +41,13 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a DELETE request with invalid authorisation with an ID of {int} for the {string} API version")]
         public void GivenICreateADELETERequestWithInvalidAuthorisationWithAnIDOfForTheAPIVersion(int p0, string p1)
         {
+            var invalidClientOptions = new RestClientOptions("https://videogamedb.uk:443")
+            {
+                Authenticator = new JwtAuthenticator("invalid_token")
+            };
+
+            Client = new RestClient(invalidClientOptions);
+
             if (p1 == "V1")
             {
                 Request = new RestRequest("/api/videogame/" + p0)

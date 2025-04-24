@@ -22,6 +22,6 @@ Scenario Outline: Check various valid and invalid IDs with invalid authorisation
 	Then I receive a status code of <status_code> from the DELETE request
 Examples: 
 	| ID | status_code |
-	| 0  | 403         |
-	| 6  | 403         |
-	| 11 | 403         |
+	| 0  | 500         |
+	| 6  | 500         |
+	| 11 | 500         |

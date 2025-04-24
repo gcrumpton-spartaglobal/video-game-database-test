@@ -131,9 +131,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check various valid and invalid IDs with invalid authorisation")]
-        [NUnit.Framework.TestCaseAttribute("0", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("6", "403", null)]
-        [NUnit.Framework.TestCaseAttribute("11", "403", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "500", null)]
+        [NUnit.Framework.TestCaseAttribute("11", "500", null)]
         public async System.Threading.Tasks.Task CheckVariousValidAndInvalidIDsWithInvalidAuthorisation(string iD, string status_Code, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

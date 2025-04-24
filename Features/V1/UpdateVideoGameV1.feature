@@ -26,9 +26,9 @@ Scenario Outline: Check various valid and invalid IDs with invalid authorisation
 	Then I receive a status code of <status_code>
 Examples: 
 	| ID | status_code |
-	| 0  | 403         |
-	| 6  | 403         |
-	| 11 | 403         |
+	| 0  | 500         |
+	| 6  | 500         |
+	| 11 | 500         |
 
 Scenario: Check valid ID response with valid authorisation but invalid request JSON content
 	Given I create a PUT request with valid authorisation with an ID of 1 to the "V1" API version

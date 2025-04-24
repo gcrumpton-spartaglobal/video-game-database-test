@@ -4,6 +4,7 @@ using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using Reqnroll;
 using RestSharp;
+using RestSharp.Authenticators;
 
 namespace VideoGameDatabaseTest.Steps
 {
@@ -48,7 +49,12 @@ namespace VideoGameDatabaseTest.Steps
         [Given("I create a PUT request with invalid authorisation with an ID of {int} to the {string} API version")]
         public void GivenICreateAPUTRequestWithInvalidAuthorisationWithAnIDOfToTheAPIVersion(int p0, string p1)
         {
-            Client = new RestClient(ClientOptions);
+            var invalidClientOptions = new RestClientOptions("https://videogamedb.uk:443")
+            {
+                Authenticator = new JwtAuthenticator("invalid_token")
+            };
+
+            Client = new RestClient(invalidClientOptions);
 
             if (p1 == "V1")
             {
