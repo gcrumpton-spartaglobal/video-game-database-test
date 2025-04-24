@@ -50,7 +50,8 @@ namespace VideoGameDatabaseTest.Steps
         [Then("I save the API key to use with other features")]
         public void ThenISaveTheAPIKeyToUseWithOtherFeatures()
         {
-            throw new PendingStepException();
+            var responseContent = JToken.Parse(Response.Content);
+            Token = responseContent["token"].ToString();
         }
 
     }
