@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -13,8 +14,8 @@ namespace VideoGameDatabaseTest.Steps
     public class BaseStepDefinitions
     {
         private static IRestClient _client;
-        private RestRequest _request;
-        private RestResponse _response;
+        private static RestRequest _request;
+        private static RestResponse _response;
         private static RestClientOptions _clientOptions;
         private static AppSettings _myConfig;
 
@@ -24,8 +25,8 @@ namespace VideoGameDatabaseTest.Steps
         private static string _token;
 
         public static IRestClient Client { get => _client; set => _client = value; }
-        public RestRequest Request { get => _request; set => _request = value; }
-        public RestResponse Response { get => _response; set => _response = value; }
+        public static RestRequest Request { get => _request; set => _request = value; }
+        public static RestResponse Response { get => _response; set => _response = value; }
         public static RestClientOptions ClientOptions { get => _clientOptions; set => _clientOptions = value; }
         internal static AppSettings MyConfig { get => _myConfig; set => _myConfig = value; }
 
@@ -36,29 +37,39 @@ namespace VideoGameDatabaseTest.Steps
 
         public static void SetupConfig()
         {
-            string configSettingPath = Directory.GetParent(@"../../../").FullName
-            + Path.DirectorySeparatorChar + "Resources/Config/appsettings.json";
+            Username = "admin";
+            Password = "admin";
 
-            ConfigurationBuilder builder = new ConfigurationBuilder();
-            builder.AddJsonFile(configSettingPath);
-
-            IConfiguration config = builder.Build();
-
-            var section = config.GetSection("UserInfo");
-
-            // Bind read-in sections to the variables in AppSettings for ease of use
-            _myConfig = new AppSettings();
-            section.Bind(_myConfig);
-
-            // Set values for use in step definitions
-            Username = MyConfig.Username;
-            Password = MyConfig.Password;
-            Token = MyConfig.Token;
+            SetToken(); // Set the token using the SetToken method
 
             ClientOptions = new RestClientOptions("https://videogamedb.uk:443")
             {
                 Authenticator = new JwtAuthenticator(Token)
             };
+        }
+
+        public static void SetToken()
+        {
+            ClientOptions = new RestClientOptions("https://videogamedb.uk:443");
+
+            Client = new RestClient(ClientOptions);
+
+            Request = new RestRequest("/api/authenticate")
+                .AddJsonBody(new Dictionary<string, string> {
+                    {"username", Username }, {"password", Password }
+                });
+
+            Response = Client.ExecutePost(Request);
+
+            if (Response.IsSuccessful)
+            {
+                var responseContent = JToken.Parse(Response.Content);
+                Token = responseContent["token"].ToString();
+            }
+            else
+            {
+                throw new Exception("Failed to retrieve token");
+            }
         }
     }
 }
