@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VideoGameDatabaseTest.Resources.Config;
 
 namespace VideoGameDatabaseTest.Steps
 {
@@ -17,7 +16,6 @@ namespace VideoGameDatabaseTest.Steps
         private static RestRequest _request;
         private static RestResponse _response;
         private static RestClientOptions _clientOptions;
-        private static AppSettings _myConfig;
 
         // Stores read-in values from appsettings.config
         private static string _username;
@@ -28,7 +26,6 @@ namespace VideoGameDatabaseTest.Steps
         public static RestRequest Request { get => _request; set => _request = value; }
         public static RestResponse Response { get => _response; set => _response = value; }
         public static RestClientOptions ClientOptions { get => _clientOptions; set => _clientOptions = value; }
-        internal static AppSettings MyConfig { get => _myConfig; set => _myConfig = value; }
 
         // Getters and setters for read-in config values
         public static string Username { get => _username; set => _username = value; }
