@@ -27,3 +27,8 @@ generate a valid API key for use in the tests each time the test suite is run. H
 most APIs in practice would allow you to create a unique token given a specific username and 
 password.
 
+## 2.2 Restrospective
+Generally speaking, I didn't have many issues working on this project. Given more time, I would 
+refactor my code even more to remove a few instances of repeated code that I missed. I am happy
+with my completed work however and have enjoyed working with RestSharp.
+
